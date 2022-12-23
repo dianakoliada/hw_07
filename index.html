@@ -9,7 +9,80 @@
 </head>
 
 <body>
+   <script>
+      //1.
 
+      const frameworks = ['AngularJS', 'jQuery'];
+      console.log(frameworks);
+
+      frameworks.unshift('Backbone.js');
+      console.log(frameworks);
+
+      frameworks.push('ReactJS', 'Vue.js');
+      console.log(frameworks);
+
+      frameworks.splice(1, 0, 'CommonJS');
+      console.log(frameworks);
+
+      const findResult = frameworks.find((el) => {
+         if (el === 'jQuery') {
+            console.log(`Это здесь лишнее: ${frameworks.slice(3, 4)}`);
+         };
+      });
+
+
+
+      //2.
+
+      //1st variant
+      const removeNegativeElements = (array) => {
+         const result = [];
+
+         for (const key of array) {
+            if (key >= '0' || key === '-102') {
+               result.push(key);
+            }
+         }
+         return result;
+      };
+      console.log(removeNegativeElements([-9, 2, 3, 0, -28, 'value']));
+      console.log(removeNegativeElements([-9, -21, -12]));
+      console.log(removeNegativeElements(['-102', 102]));
+
+
+      console.log('=========2nd variant==========');
+      let arr = [-9, 2, 3, 0, -28, 'value'];
+      const arrResult = arr.filter(el => el >= '0');
+      console.log(arrResult);
+
+
+
+      //3.
+
+      //1st variant
+      const getStringElements = (arrayTwo) => {
+         const resultTwo = [];
+
+         for (let item of arrayTwo) {
+            if (typeof item === 'string') {
+               resultTwo.push(item);
+            }
+         }
+         return resultTwo;
+      };
+      console.log(getStringElements([1, true, 42, "red", 64, "green", "web", new Date(), -898, false]));
+
+
+      console.log('=========2nd variant==========');
+      let arrTwo = [1, true, 42, "red", 64, "green", "web", new Date(), -898, false];
+      const arrTwoResult = arrTwo.filter(elements => typeof elements === 'string');
+      console.log(arrTwoResult);
+
+
+
+
+
+   </script>
 </body>
 
 </html>
